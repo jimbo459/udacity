@@ -1,0 +1,16 @@
+## Task0
+O(1)
+
+## Task1
+O(3n+2) == O(n)
+
+## Task2
+O(3n+2) == O(n)
+
+## Task3
+O(2n+7) == O(n)
+** Relying on built in functions for sorting which in theory are also linear order.
+
+## Task4
+O(4n+5) == O(n)
+** Relying on built in functions for sorting which in theory are also linear order.
