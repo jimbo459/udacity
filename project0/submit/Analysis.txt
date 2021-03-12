@@ -1,16 +1,54 @@
 ## Task0
+There are 3 functions called in this task, and all three are constant time.
+We are just using indexes, which will take the same time irrespective of the size of n.
+
+### Task complexity:
 O(1)
 
 ## Task1
-O(3n+2) == O(n)
+In this task we have an outer loop which will run twice (2n)
+
+We then have two loops which range n, however they are not nested so this would also be (2n)
+
+Given that the outer loop is fixed to 2, rather than being determinate on n I believe this would not be
+quadratic order, but instead linear.
+
+### Task complexity:
+O(n)
 
 ## Task2
-O(3n+2) == O(n)
+Outer loop fixed to two iterations - O(2n)
+Inner loop linear time - O(n)
+Max function - linear time - O(n)
+
+### Task complexity:
+O(n)
 
 ## Task3
-O(2n+7) == O(n)
-** Relying on built in functions for sorting which in theory are also linear order.
+Outer loop linear time - O(n)
+Second loop linear time - O(n)
+Calculating the percentage, fixed time - O(1)
+Removing duplicates from list, linear time - O(n)
+Sorting list - O(n log n)
+
+I believe the sorting of the list to be the bottleneck in this solution.
+
+O(n log n) > O(n) > O(1)
+
+### Task complexity:
+O(n log n)
 
 ## Task4
-O(4n+5) == O(n)
-** Relying on built in functions for sorting which in theory are also linear order.
+
+Two loops, one for calls, one for texts, both linear time - O(n)
+Removing duplicates in the list, will look at every element in the input - linear time - O(n)
+Another loop of linear time - O(n)
+Sorting the final dict by key - O(n log n)
+
+Again, the sorting step has the greatest complexity.
+
+O(n log n) > O(n)
+
+### Task complexity:
+O(n log n)
+

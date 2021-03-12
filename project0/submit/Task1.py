@@ -27,6 +27,9 @@ def main():
         for number in range(len(calls)):
             if not record_exists.get(calls[number][column]):
                 record_exists[calls[number][column]] = True
+        for number in range(len(texts)):
+            if not record_exists.get(texts[number][column]):
+                record_exists[texts[number][column]] = True
 
     print("There are {} different telephone numbers in the records.".format(
         len(record_exists)
