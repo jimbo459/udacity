@@ -152,10 +152,10 @@ class MinHeap:
 
 
 def main():
+    print("Experiment 1\n")
+
     input_string = "AAAAAAABBBCCCCCCCDDEEEEEE"
 
-    ### Print Binary output of input string
-    binary_string = ''.join(format(ord(i), '08b') for i in input_string)
     print("The content of the data is: {}\n".format(input_string))
     print("The size of the data is: {}\n".format(sys.getsizeof(input_string)))
 
@@ -169,26 +169,39 @@ def main():
     print("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
     print("The content of the encoded data is: {}\n".format(decoded_data))
 
+    print("Experiment 2\n")
 
+    input_string_2 = "AAAAAAAB"
 
+    print("The content of the data is: {}\n".format(input_string_2))
+    print("The size of the data is: {}\n".format(sys.getsizeof(input_string_2)))
 
+    encoded_data_2, tree_2 = huffman_encoding(input_string_2)
 
+    print("The size of the encoded data is: {}\n".format(sys.getsizeof(int(encoded_data_2))))
+    print("The content of the encoded data is: {}\n".format(encoded_data_2))
 
-    # Traverse down until reaching a char
+    decoded_data = huffman_decoding(encoded_data_2, tree_2)
 
+    print("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
+    print("The content of the encoded data is: {}\n".format(decoded_data))
 
+    print("Experiment 3\n")
 
+    input_string = "EEA"
 
-    # Return char and path to get there
-    # Traversing left will result in a 0
-    # Travesing right will result in a 1
+    print("The content of the data is: {}\n".format(input_string))
+    print("The size of the data is: {}\n".format(sys.getsizeof(input_string)))
 
+    encoded_data, tree = huffman_encoding(input_string)
 
+    print("The size of the encoded data is: {}\n".format(sys.getsizeof(int(encoded_data, base=2))))
+    print("The content of the encoded data is: {}\n".format(encoded_data))
 
+    decoded_data = huffman_decoding(encoded_data, tree)
 
-
-
-
+    print("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
+    print("The content of the encoded data is: {}\n".format(decoded_data))
 
 
 if __name__ == "__main__":
