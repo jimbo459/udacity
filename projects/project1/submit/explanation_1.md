@@ -9,5 +9,4 @@ but by using the hash-map to keep track of the individual nodes stops us having 
 the doubly linked list, and remove nodes in constant time. 
 
 Time efficiency is constant O(1) as items stored in cache are directly referenced, with no need to search.
-Space efficiency is also constant O(1) this is due to there being no loops or recursive functions being called.
-Instead the space is restricted to a Doubly linked list of 5 nodes and a dict with 5 entries. 
+Space efficiency is O(n) due to the memory required increasing based on the size of input into the cache. Worst case a user increases the capacity of the cache, increasing the memory requirement.

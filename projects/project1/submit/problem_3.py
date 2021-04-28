@@ -52,6 +52,7 @@ def huffman_encoding(data):
         new_node = Node(char, ((frequency / len_of_input) *100))
         priority_queue.insert(new_node)
 
+
     huffman_tree.build_from_queue(priority_queue)
     encoded_data = huffman_tree.encode(data)
 
@@ -86,16 +87,23 @@ class HuffmanTree:
         return self.root
 
     def build_from_queue(self, priority_queue):
-        while len(priority_queue) > 1:
-            left_tuple = priority_queue.pop()
-            right_tuple = priority_queue.pop()
 
-            frequency = right_tuple[0] + left_tuple[0]
-
-            new_node = Node(None, frequency)
-            new_node.left = left_tuple[1]
-            new_node.right = right_tuple[1]
+        if len(priority_queue) == 1:
+            char_tuple = priority_queue.pop()
+            new_node = Node(None, 100)
+            new_node.left = char_tuple[1]
             priority_queue.insert(new_node)
+        else:
+            while len(priority_queue) > 1:
+                left_tuple = priority_queue.pop()
+                right_tuple = priority_queue.pop()
+
+                frequency = right_tuple[0] + left_tuple[0]
+
+                new_node = Node(None, frequency)
+                new_node.left = left_tuple[1]
+                new_node.right = right_tuple[1]
+                priority_queue.insert(new_node)
 
         head_node = priority_queue.pop()
 
@@ -115,8 +123,9 @@ class HuffmanTree:
         else:
             left_encoding = encoding + "0"
             self._encode(node.get_left_child(), left_encoding)
-            right_encoding = encoding + "1"
-            self._encode(node.get_right_child(), right_encoding)
+            if node.has_right_child():
+                right_encoding = encoding + "1"
+                self._encode(node.get_right_child(), right_encoding)
 
     def __repr__(self):
 
@@ -152,6 +161,7 @@ class MinHeap:
 
 
 def main():
+    ### Test 1
     print("Experiment 1\n")
 
     input_string = "AAAAAAABBBCCCCCCCDDEEEEEE"
@@ -169,9 +179,10 @@ def main():
     print("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
     print("The content of the encoded data is: {}\n".format(decoded_data))
 
+    ### Test 2
     print("Experiment 2\n")
 
-    input_string_2 = "AAAAAAAB"
+    input_string_2 = "AAA"
 
     print("The content of the data is: {}\n".format(input_string_2))
     print("The size of the data is: {}\n".format(sys.getsizeof(input_string_2)))
@@ -188,7 +199,7 @@ def main():
 
     print("Experiment 3\n")
 
-    input_string = "EEA"
+    input_string = "E"
 
     print("The content of the data is: {}\n".format(input_string))
     print("The size of the data is: {}\n".format(sys.getsizeof(input_string)))

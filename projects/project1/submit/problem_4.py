@@ -21,6 +21,9 @@ class Group(object):
 
 
 def is_user_in_group(user, group):
+    if len(str(group)) == 0 or type(group) is not Group:
+        print("Please enter a valid group")
+        return
     if user in group.users:
         return True
     else:
@@ -42,6 +45,7 @@ def main():
     child.add_group(sub_child)
     parent.add_group(child)
 
+    ### Test 1
     ### Should print True as sub_child_user is under parent
     print(is_user_in_group(sub_child_user, parent))
 
@@ -51,8 +55,16 @@ def main():
     ### Should print true as sub_child_user is in sub_child group
     print(is_user_in_group(sub_child_user, sub_child))
 
+    ### Test 2
     ### Should print false as no name is given
     print(is_user_in_group("", parent))
+
+    ### Test 3
+    ### Non-group object given as arg - should print line asking user for valid group name
+    no_group = ""
+    print(is_user_in_group("", no_group))
+
+
 
 
 if __name__ == "__main__":

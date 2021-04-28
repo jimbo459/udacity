@@ -6,7 +6,6 @@ Using a simply python list makes it easy to both extend or append the returned i
 This was important as find files may return multiple items, so to add this to the top level list the extend method is required. 
 Otherwise you would have a list of sub-lists. 
 
-The Time complexity for this solution is O(n^2). This is due to there being a for loop within the function, which will run on each item,
-but each item could also have the find_files function called on it. 
+The Time complexity for this solution is O(n). This is due to there being a for loop within the function, which will run on each item.
 
 The Space complexity is O(n) given that each directory will invoke find_files which creates an additional python list. 

@@ -47,6 +47,10 @@ class DoublyLinkedList:
 
 class LRU_Cache(object):
     def __init__(self, capacity):
+        if capacity is None or capacity < 1:
+            print("Capacity must be > 1")
+            return
+
         self.cache = dict({})
         self.ll = DoublyLinkedList()
         self.capacity = capacity
@@ -77,6 +81,7 @@ class LRU_Cache(object):
 
 
 def main():
+    ### Test 1 - Green path
     our_cache = LRU_Cache(5)
 
     our_cache.set(1, 1);
@@ -96,6 +101,13 @@ def main():
 
     print(our_cache.get(3))
     # returns -1 as 3 has now been removed from cache
+
+    ### Test 2 - Capacity is NULL returns error "Capacity must be > 1"
+    cache_2 = LRU_Cache(None)
+
+    ### Test 3 - Capacity negative, returns error "Capacity must be > 1"
+    cache_3 = LRU_Cache(-1)
+
 
 if __name__ == "__main__":
     main()

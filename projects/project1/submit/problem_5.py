@@ -4,11 +4,15 @@ import time
 
 class Block:
     def __init__(self, timestamp, data, previous_hash):
-      self.timestamp = timestamp
-      self.data = data
-      self.previous_hash = previous_hash
-      self.hash = self.calc_hash(data, timestamp)
-      self.next = None
+        if len(data) == 0:
+            print("Please provide data for block")
+            return
+
+        self.timestamp = timestamp
+        self.data = data
+        self.previous_hash = previous_hash
+        self.hash = self.calc_hash(data, timestamp)
+        self.next = None
 
     def get_hash(self):
         return self.hash
@@ -46,6 +50,8 @@ class BlockChain:
 
 
 def main():
+
+    ### Test 1
     ### Create a new BlockChain
     bc = BlockChain()
 
@@ -56,6 +62,23 @@ def main():
 
     ### Print all hash entries in blockchain
     block = bc.get_head()
+    while block is not None:
+        print(block.get_hash())
+        block = block.get_next()
+
+    ### Test 2
+    bc_2 = BlockChain()
+    ### Add empty block - prints message instructing user to add data
+    bc_2.add("")
+
+    ### Test 3
+    bc_3 = BlockChain()
+    ### Add different characters to data
+    bc_3.add("123123")
+    bc_3.add("Some data")
+
+    ### Print all hash entries in blockchain
+    block = bc_3.get_head()
     while block is not None:
         print(block.get_hash())
         block = block.get_next()

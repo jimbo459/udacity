@@ -92,7 +92,7 @@ def intersection(llist_1, llist_2):
     return iter_to_linked_list(intersection)
 
 def main():
-# Test case 1
+    # Test case 1 - all ints - should work correctly
 
     linked_list_1 = LinkedList()
     linked_list_2 = LinkedList()
@@ -106,12 +106,12 @@ def main():
     for i in element_2:
         linked_list_2.append(i)
 
-    print("union linked_list1 & linked_list2")
+    print("union linked_list1 & linked_list2 - should contain [6, 5, 6, 3, 2, 1]")
     print (union(linked_list_1,linked_list_2))
-    print("\nintersection linked_list1 & linked_list2")
+    print("\nintersection linked_list1 & linked_list2 - should contain [3]")
     print (intersection(linked_list_1,linked_list_2))
 
-    # Test case 2
+    # Test case 2 - include a string in data set - should work correctly
 
     linked_list_3 = LinkedList()
     linked_list_4 = LinkedList()
@@ -125,10 +125,50 @@ def main():
     for i in element_2:
         linked_list_4.append(i)
 
-    print("\nunion linked_list3 & linked_list4")
+    print("\nunion linked_list3 & linked_list4 - should contain [a, 6, 5, 4, 3, 2, 1, 0]")
     print (union(linked_list_3,linked_list_4))
-    print("\nintersection linked_list3 & linked_list4")
+    print("\nintersection linked_list3 & linked_list4 - should contain [5, 4, 3, 2")
     print (intersection(linked_list_3,linked_list_4))
+
+
+    # Test case 3 - one list is empty. Union should return non-empty list, intersection should return empty list
+
+    linked_list_5 = LinkedList()
+    linked_list_6 = LinkedList()
+
+    element_1 = []
+    element_2 = [0, 2, 3, 4, 5, 6]
+
+    for i in element_1:
+        linked_list_5.append(i)
+
+    for i in element_2:
+        linked_list_6.append(i)
+
+    print("\nunion linked_list5 & linked_list6 - should contain [0, 2, 3, 4, 5, 6]")
+    print(union(linked_list_5, linked_list_6))
+    print("\nintersection linked_list5 & linked_list6 - should be empty")
+    print(intersection(linked_list_5, linked_list_6))
+
+    # Test case 4 - both lists empty. Both functions should return empty list
+
+    linked_list_7 = LinkedList()
+    linked_list_8 = LinkedList()
+
+    element_1 = []
+    element_2 = []
+
+    for i in element_1:
+        linked_list_7.append(i)
+
+    for i in element_2:
+        linked_list_8.append(i)
+
+    print("\nunion linked_list7 & linked_list8 - should be empty")
+    print(union(linked_list_7, linked_list_8))
+    print("\nintersection linked_list7 & linked_list8 - should be empty")
+    print(intersection(linked_list_7, linked_list_8))
+
 
 
 if __name__ == "__main__":
