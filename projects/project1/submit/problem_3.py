@@ -42,6 +42,10 @@ def character_frequency(input_string):
 
 
 def huffman_encoding(data):
+    if len(data) == 0:
+        print("Please input a string to encode")
+        exit(1)
+
     huffman_tree = HuffmanTree()
 
     len_of_input = len(data)
@@ -214,6 +218,16 @@ def main():
     print("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
     print("The content of the encoded data is: {}\n".format(decoded_data))
 
+    print("Experiment 4\n")
+
+    input_string = ""
+
+    print("The content of the data is: {}\n".format(input_string))
+    print("The size of the data is: {}\n".format(sys.getsizeof(input_string)))
+
+    encoded_data, tree = huffman_encoding(input_string)
+
+    ### Should print "Please input a string to encode" and exit code 1
 
 if __name__ == "__main__":
     main()
