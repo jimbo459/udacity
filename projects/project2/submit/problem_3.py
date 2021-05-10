@@ -55,7 +55,7 @@ def test_function(test_case):
     if sum(output) == sum(solution):
         print("Pass")
     else:
-        print("Fail. Expected ")
+        print("Fail. Expected {}, got {}". format(solution, output))
 
 
 def main():
