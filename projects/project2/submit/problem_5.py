@@ -39,6 +39,9 @@ class Trie:
         node.isWord = True
 
     def find(self, value):
+        if value is None or value == "":
+            return "Error, Please provide string character"
+
         node = self.root
 
         for char in value:
@@ -50,7 +53,6 @@ class Trie:
 
 
 def main():
-
     MyTrie = Trie()
     wordList = [
         "ant", "anthology", "antagonist", "antonym",
@@ -61,8 +63,20 @@ def main():
         MyTrie.insert(word)
 
     f = MyTrie.find("f")
-
+    ### Expected - ['un', 'unction', 'actory']
     print(f.suffixes())
+
+    t = MyTrie.find("t")
+    ### Expected - ['rie', 'gger', 'onometry', 'pod']
+    print(t.suffixes())
+
+    none = MyTrie.find(None)
+    ### Expected - Error, Please provide string character
+    print(none)
+
+    empty_string = MyTrie.find("")
+    ### Expected - Error, Please provide string character
+    print(empty_string)
 
 
 if __name__ == "__main__":

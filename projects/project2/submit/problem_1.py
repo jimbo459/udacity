@@ -1,4 +1,9 @@
 def sqrt(number):
+    try:
+        number = int(number)
+    except ValueError:
+        return "Error, Input should be an int"
+
     start = 0
     end = number
 
@@ -17,12 +22,19 @@ def sqrt(number):
 
     return round(mid)
 
+
 def main():
-    print("Pass" if (3 == sqrt(9)) else "Fail")
-    print("Pass" if (0 == sqrt(0)) else "Fail")
-    print("Pass" if (4 == sqrt(16)) else "Fail")
-    print("Pass" if (1 == sqrt(1)) else "Fail")
-    print("Pass" if (5 == sqrt(27)) else "Fail")
+    ### Should print 3
+    print(sqrt(9))
+
+    ### Should print 5 (non-whole-number test)
+    print(sqrt(27))
+
+    ### Converts string to int - should print 2
+    print(sqrt("2"))
+
+    ### Errors if non-int string given - should print "Error, Input should be an int"
+    print(sqrt(""))
 
 
 if __name__ == "__main__":

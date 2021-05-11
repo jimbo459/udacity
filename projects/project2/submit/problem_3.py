@@ -30,7 +30,6 @@ def quick_sort(list, low, high):
 
 
 def rearrange_digits(input_list):
-
     sorted_list = quick_sort(input_list, 0, len(input_list) -1)
 
     str_1 = ""
@@ -59,9 +58,17 @@ def test_function(test_case):
 
 
 def main():
+    ### Should print [99,9]
+    print(rearrange_digits([9, 9, 9,]))
 
-    test_function([[1, 2, 3, 4, 5], [542, 31]])
-    test_function([[4, 6, 2, 5, 9, 8], [964, 852]])
+    ### Should print [90,9]
+    print(rearrange_digits([0, 9, 9,]))
+
+    ### Should print [531, 42]
+    print(rearrange_digits([1, 2, 3, 4, 5]))
+
+    ### No need for None test or negative number as problem set states all elements will
+    ### be in range 0-9
 
 
 if __name__ == "__main__":

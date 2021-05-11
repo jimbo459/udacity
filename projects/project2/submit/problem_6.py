@@ -11,11 +11,10 @@ def get_min_max(ints):
         elif int > max:
             max = int
 
-    return (min,max)
+    return min,max
 
 
 def main():
-
     ### Unsorted list
     list_1 = [0,1,2,3,5,4,6,7,8,9]
 
@@ -35,6 +34,7 @@ def main():
     list_4 = []
 
     print("Pass" if (None == get_min_max(list_4)) else "Fail")
+
 
 if __name__ == "__main__":
     main()
